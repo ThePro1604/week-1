@@ -1,13 +1,151 @@
-.header{
-    background-color: #E4F9F5;
+*{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+    background: #E4F9F5;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
 }
 
-/*!*.header .cloud-right{*!*/
-/*!*    margin-right: 300px;*!*/
-/*!*    margin-top: 40px;*!*/
-/*!*}*!*/
+header .overlay{
+    width: 100%;
+    height: 100%;
+    /*padding: 50px;*/
+    padding-bottom: 0;
+}
+.dots {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    letter-spacing: .6rem;
+    color: #d2fafa;
+}
 
-/*!*.header .cloud-left{*!*/
-/*!*    margin-left: 250px;*!*/
-/*!*    margin-bottom: 300px;*!*/
-/*!*}*!*/
+header div.overlay #underline u{
+    text-decoration: underline;
+}
+
+.top-cloud{
+    margin-right: -70%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.bottom-cloud {
+    margin-left: -60%;
+    margin-top: 10px;
+}
+
+.overlay h2 {
+    letter-spacing: .2rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#mountain {
+    border: none;
+    outline: none;
+}
+
+.page-content {
+    text-align: center;
+}
+
+p {
+    font-family: Merriweather;
+    color: #40514E;
+    line-height: 2.3rem;
+    letter-spacing: .05rem
+}
+
+h1 {
+    font-family: Sacramento;
+    color: #66BFBF;
+}
+
+h2 {
+    color: #66BFBF;
+    letter-spacing: .08rem
+}
+
+
+h2, h3, h4, h5, h6 {
+    font-family: Montserrat;
+    color: #11999E;
+
+}
+
+.page-content p u{
+    color:red;
+    text-decoration: none;
+    -webkit-text-stroke: 2px black;
+}
+
+button:hover{
+    background-color: #30e3cb;
+}
+
+.page-content button{
+    background-color: #11cdd4;
+    color: white;
+    border: none;
+    padding: 7px;
+    padding-inline: 13px;
+    font-size: 15px;
+    border-radius: 6px;
+    letter-spacing: .09rem
+
+}
+
+
+.splitscreen {
+    display: flex;
+}
+
+.splitscreen .left-column{
+    text-align: left;
+}
+.splitscreen .right-column {
+    text-align: left;
+}
+
+footer {
+    background: #66BFBF;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+footer .overlay{
+    width: 100%;
+    height: 100%;
+    /*padding: 50px;*/
+    padding-bottom: 0px;
+}
+
+footer .overlay li {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: inline-block;
+    padding-inline: 20px;
+    color: #11999E;
+}
+
+footer .overlay .links{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+footer .overlay p {
+    color: #EAF6F6;
+    padding-bottom: 40px;
+}
+

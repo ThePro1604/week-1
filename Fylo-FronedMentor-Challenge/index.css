@@ -184,18 +184,19 @@ and (max-device-width : 1024px) {
 and (min-width : 1224px) {
     .start {
         color: white;
-        display: inline-block;
+        display: inline;
         font-family:Garamond;
         position: absolute;
-        margin-left: -15%;
+        margin-left: -20%;
     }
 
     .end {
         color: white;
-        display: inline-block;
-        margin-left: -47%;
+        display: inline;
+        margin-left: 300%;
         font-family:Garamond;
         position: absolute;
+        width: 30%;
     }
 
     .memory {
@@ -262,7 +263,7 @@ and (min-width : 1224px) {
         justify-content: center;
         align-items: end;
         text-align: center;
-        margin-top: 220px;
+        margin-top: 300px;
 
     }
 
@@ -316,21 +317,19 @@ and (min-width : 1224px) {
 
         background-image: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
         display: flex;
-        width: 75%;
-        padding: 7px;
+        /*width: 80%;*/
+        padding-bottom: 2px;
         border-radius: 10px;
     }
 
     .dot {
-        margin-inline: 50px;
-        /*display: flex;*/
-        margin-top: 10px;
-        left: 67.4%;
-        position: absolute;
-        font-size: 100px;
-        color: white;
+        display: flex;
+        float: right;
+        margin: -1% -1% -1% auto;
 
     }
+
+
     .main-bubble {
         position: absolute;
         margin-left: 24%;

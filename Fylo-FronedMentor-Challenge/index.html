@@ -8,18 +8,19 @@
   <link rel="stylesheet" href="index.css">
   <script src="index.js"></script>
   <title>Fylo data storage component</title>
+  <script data-main="index.js" src="require.js"></script>
 </head>
 
 <body>
-  <img class="bg" src="assets/bg-desktop.png" width="200" height="120" />
+  <img alt="bg-desktop" class="bg" src="assets/bg-desktop.png" width="200" height="120" />
 
   <div class="block">
     <div class="logo-block">
-      <img class="logo" src="assets/logo.svg" />
+      <img alt="logo" class="logo" src="assets/logo.svg" />
       <div class="icons">
         <button onclick="ChooseFile()"><img class="icon" src="assets/icon-document.svg" /></button>
-        <button><img class="icon" src="assets/icon-folder.svg" /></button>
-        <button><img class="icon2" src="assets/icon-upload.svg"/></button>
+        <button><img alt="icon-folder" class="icon" src="assets/icon-folder.svg" /></button>
+        <button><img alt="icon-upload" class="icon2" src="assets/icon-upload.svg"/></button>
 
       </div>
 
@@ -27,18 +28,17 @@
     <div class="progress-bar-block">
       <div class="main-bubble">
         <div class="speech-bubble" style="text-align: center">
-          <p style="position: absolute;width: 200px; font-size: 18px; font-family: 'Raleway', monospace;text-align: center" ><b style="font-family: 'Raleway', Brush Script MT; font-size: 40px" >185</b> GB Left</p>
+          <p style="position: absolute;width: 200px; font-size: 18px; font-family: 'Raleway', monospace;text-align: center" ><b style="font-family: 'Raleway', Brush Script MT; font-size: 40px"><span id="memory_left">3</span></b> MB Left</p>
         </div>
       </div>
-      <p class="used" >You’ve used <strong style="margin-inline: 5px;"> 815 GB </strong> of your storage</p>
-      <p class="dot" >.</p>
+      <p class="used" >You’ve used <strong style="margin-inline: 5px;"><span id="memory_used">7</span> MB</strong> of your storage</p>
 
       <div class="progress">
-        <div class="progress-bar"></div>
+        <div style="width: 70%" class="progress-bar" id="progressbar"><div class="dot" >⚪</div></div>
       </div>
       <div class="memory">
-        <p class="start">0 GB</p>
-        <p class="end">1000 GB</p>
+        <p class="start">0 MB</p>
+        <p class="end">10 MB</p>
       </div>
     </div>
   </div>

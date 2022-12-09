@@ -3,7 +3,7 @@ function ChooseFile() {
     let regex = new RegExp("(.*?)\.(png|jpg|jpeg|gif|PNG)$")
     input.type = 'file';
     let _memoryLeft = document.getElementById("memory_left").innerHTML;
-    let _memoryUsed = document.getElementById("memory_used").innerHTML;
+    let _memoryUsed = parseInt(document.getElementById("memory_used").innerHTML);
     let element = document.getElementById("progressbar");
     const change_element = document.querySelector('.progress-bar')
     progressbar = parseInt(element.style.width);

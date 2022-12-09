@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    background-color: hsl(229, 57%, 11%);
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 340px)
+and (max-device-width : 455px) {
+
+    .bg{
+        right: 0;
+        width: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+
+
+    .progress-bar-block {
+        width: 40%;
+        height: 180px;
+        border-radius: 10px 10px 10px 10px;
+
+    }
+    .used {
+        margin-inline: 15%;
+        display: flex;
+        margin-top: 7%;
+        position: absolute;
+        /*font: 'Raleway' , 22.4px , regular;*/
+        font-family: 'Raleway', system-ui;
+        font-size: 15.4px;
+        color: white;
+    }
+
+    .progress {
+        margin-inline: 15px;
+        display: flex;
+        position: absolute;
+        margin-top: 70px;
+        width: 76%;
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .progress-bar {
+        background-image: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+        display: flex;
+        width: 75%;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        border-radius: 10px;
+    }
+
+    .dot {
+        display: flex;
+        float: right;
+        margin: -1% -1% -1% auto;
+        height: 15px;
+        width: 15px;
+        background-color: white;
+        border-radius: 50%;
+
+    }
+
+
+    .logo {
+        margin-right: 30%;
+        margin-top: 10%;
+        width: 50%;
+        height: auto;
+    }
+
+    .icons{
+        margin-right: 60px;
+        margin-top: 20px;
+    }
+
+    .icon {
+        background-color: hsl(229, 57%, 11%);
+        height: 1.6em;
+        width: 1.7rem;
+        display: inline-block;
+        padding: 10px;
+        border-radius: 10px ;
+        margin-inline: 10px;
+        writing-mode: horizontal-tb;
+    }
+
+    .icon2 {
+        background-color: hsl(229, 57%, 11%);
+        width: 1.7rem;
+        display: inline-block;
+        border-radius: 10px ;
+        margin-inline: 10px;
+        writing-mode: horizontal-tb;
+        height: 1.4em;
+        padding: 12px;
+    }
+
+    /* Styles */
+    body {
+        background-image: url("assets/bg-mobile.png");
+        background-repeat: no-repeat;
+        background-size: auto 1000px;
+    }
+    .content_block {
+        /*display: flex;*/
+        justify-content: center;
+        align-items: end;
+        text-align: center;
+        margin-top: 60px;
+        margin-inline: 25px;
+
+    }
+
+    .logo-block, .progress-bar-block {
+        background-color: hsl(228, 56%, 26%);
+        /*margin-inline: 32px;*/
+        z-index: 1;
+
+    }
+
+
+    .logo-block {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px 100px 10px 10px;
+        margin-bottom: 10%;
+
+    }
+
+    .progress-bar-block {
+        text-align: left;
+        width: 100%;
+        height: 150px;
+        border-radius: 10px 10px 10px 10px;
+
+    }
+    .startMB {
+        color: white;
+        display: inline;
+        font-family:Garamond;
+        position: absolute;
+        margin-left: 5%;
+
+    }
+
+    .endMB {
+        color: white;
+        display: inline;
+        margin-left: 80%;
+        font-family:Garamond;
+        position: absolute;
+    }
+    .memory {
+        margin-top: 20%;
+        position: absolute;
+        width: 90%;
+    }
+
+    .main-bubble {
+        position: absolute;
+        margin-left: 20%;
+        background: white;
+        width: 200px;
+        height: 80px;
+        margin-top: 130px;
+        border-radius: 10px;
+    }
+
+    .speech-bubble {
+        position: absolute;
+        background: #00aabb;
+        border-radius: .4em;
+    }
+
+    .bubble-text {
+        position: absolute;
+        width: 200px;
+        font-size: 18px;
+        font-family: 'Raleway', monospace;
+        text-align: center;
+    }
+
+    #memory_left {
+        font-family: 'Raleway', Brush Script MT;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    #memory_used {
+        margin-inline: 5px;
+        font-weight: bold;
+    }
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+
+}
+

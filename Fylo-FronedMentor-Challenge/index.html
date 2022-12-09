@@ -5,40 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="desktopStyling.css">
+  <link rel="stylesheet" href="mobileStyling.css">
+
   <script src="index.js"></script>
   <title>Fylo data storage component</title>
-  <script data-main="index.js" src="require.js"></script>
 </head>
 
 <body>
-  <img alt="bg-desktop" class="bg" src="assets/bg-desktop.png" width="200" height="120" />
+  <img alt="bg-desktop" class="bg" src="assets/bg-desktop.png" />
 
-  <div class="block">
+  <div class="content_block">
     <div class="logo-block">
       <img alt="logo" class="logo" src="assets/logo.svg" />
       <div class="icons">
         <button onclick="ChooseFile()"><img class="icon" src="assets/icon-document.svg" /></button>
         <button><img alt="icon-folder" class="icon" src="assets/icon-folder.svg" /></button>
         <button><img alt="icon-upload" class="icon2" src="assets/icon-upload.svg"/></button>
-
       </div>
-
     </div>
+
     <div class="progress-bar-block">
       <div class="main-bubble">
-        <div class="speech-bubble" style="text-align: center">
-          <p style="position: absolute;width: 200px; font-size: 18px; font-family: 'Raleway', monospace;text-align: center" ><b style="font-family: 'Raleway', Brush Script MT; font-size: 40px"><span id="memory_left">3</span></b> MB Left</p>
+        <div class="speech-bubble">
+          <p class="bubble-text"><span id="memory_left">3</span> MB Left</p>
         </div>
       </div>
-      <p class="used" >You’ve used <strong style="margin-inline: 5px;"><span id="memory_used">7</span> MB</strong> of your storage</p>
-
+      <p class="used" >You’ve used <span id="memory_used">7 MB</span> of your storage</p>
       <div class="progress">
-        <div style="width: 70%" class="progress-bar" id="progressbar"><div class="dot" >⚪</div></div>
+        <div style="width: 70%" class="progress-bar" id="progressbar"><span class="dot"></span></div>
+
       </div>
       <div class="memory">
-        <p class="start">0 MB</p>
-        <p class="end">10 MB</p>
+        <p class="startMB">0 MB</p>
+        <p class="endMB">10 MB</p>
       </div>
     </div>
   </div>

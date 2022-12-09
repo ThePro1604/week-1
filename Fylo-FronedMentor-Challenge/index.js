@@ -56,7 +56,7 @@ function ChooseFile() {
         }
 
         if (errors.length > 0) {
-            alert(errors.join('\r\n'));
+            popupModal(errors.join('\r\n'));
         }
 
         if (errors.length === 0) {

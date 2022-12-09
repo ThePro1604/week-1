@@ -7,8 +7,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="desktopStyling.css">
   <link rel="stylesheet" href="mobileStyling.css">
-
   <script src="index.js"></script>
+
+  <link rel="stylesheet" href="components/dialog/modalbox.css">
+  <script src="components/dialog/modalbox.js"></script>
+
   <title>Fylo data storage component</title>
 </head>
 
@@ -42,5 +45,18 @@
       </div>
     </div>
   </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Error Warning!</h2>
+      </div>
+      <p id="modalError"></p>
+    </div>
+  </div>
+
 </body>
 </html>

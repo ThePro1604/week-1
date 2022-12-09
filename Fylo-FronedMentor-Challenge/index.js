@@ -1,13 +1,48 @@
+function checkLocal() {
+    let _memoryLeft;
+    let _memoryUsed;
+    let progressbar;
+    const change_element = document.querySelector('.progress-bar')
+
+    if (!window.sessionStorage.getItem("Used")) {
+        clearStorage()
+    }
+    else {
+        _memoryUsed = window.sessionStorage.getItem("Used");
+        _memoryLeft = window.sessionStorage.getItem("Left");
+        progressbar = window.sessionStorage.getItem("Progress");
+        document.getElementById("memory_left").innerHTML = _memoryLeft;
+        document.getElementById("memory_used").innerHTML = _memoryUsed + " MB";
+        change_element.style.width = progressbar + "%";
+    }
+}
+
+function clearStorage(){
+    localStorage.clear();
+    sessionStorage.clear();
+    window.sessionStorage.setItem("Left", "10");
+    window.sessionStorage.setItem("Used", "0");
+    window.sessionStorage.setItem("Progress", "0");
+    const change_element = document.querySelector('.progress-bar')
+
+    document.getElementById("memory_left").innerHTML = window.sessionStorage.getItem("Left");
+    document.getElementById("memory_used").innerHTML = window.sessionStorage.getItem("Used") + " MB";
+    change_element.style.width = window.sessionStorage.getItem("Progress") + "%";
+
+}
+
 function ChooseFile() {
+    let _memoryLeft = window.sessionStorage.getItem("Left");
+    let _memoryUsed = window.sessionStorage.getItem("Used");
+    let progressbar = window.sessionStorage.getItem("Progress");
+    const change_element = document.querySelector('.progress-bar')
+
+    let errors = [];
+    let progress;
     let input = document.createElement('input');
     let regex = new RegExp("(.*?)\.(png|jpg|jpeg|gif|PNG)$")
     input.type = 'file';
-    let _memoryLeft = document.getElementById("memory_left").innerHTML;
-    let _memoryUsed = parseInt(document.getElementById("memory_used").innerHTML);
-    let element = document.getElementById("progressbar");
-    const change_element = document.querySelector('.progress-bar')
-    progressbar = parseInt(element.style.width);
-    let errors = [];
+
     input.onchange = _ => {
         // you can use this method to get file and perform respective operations
         let files =   Array.from(input.files);
@@ -35,6 +70,7 @@ function ChooseFile() {
                 let width = parseInt(progressbar);
 
                 let id = setInterval(frame, 1);
+
                 function frame() {
                     if (width >= progress) {
                         clearInterval(id);
@@ -46,21 +82,12 @@ function ChooseFile() {
                 }
             }
             document.getElementById("memory_left").innerHTML = _memoryLeft;
-            document.getElementById("memory_used").innerHTML = _memoryUsed;
+            document.getElementById("memory_used").innerHTML = _memoryUsed + " MB";
 
 
-            let memory_detail = {"Used": _memoryUsed, "Left": _memoryLeft, "Progress": progress};
-
-            // Trying to save to json the changed values
-
-            // const fs = require('fs');
-            //
-            // fs.writeFile ("memory.json", JSON.stringify(memory_detail), function(err) {
-            //         if (err) throw err;
-            //         console.log('complete');
-            //     }
-            // );
-
+            window.sessionStorage.setItem("Used", _memoryUsed);
+            window.sessionStorage.setItem("Left", _memoryLeft);
+            window.sessionStorage.setItem("Progress", progress);
         }
         errors = []
     };

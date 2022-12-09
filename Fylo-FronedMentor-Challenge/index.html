@@ -12,28 +12,28 @@
   <title>Fylo data storage component</title>
 </head>
 
-<body>
+<body onload="checkLocal()">
   <img alt="bg-desktop" class="bg" src="assets/bg-desktop.png" />
 
   <div class="content_block">
     <div class="logo-block">
       <img alt="logo" class="logo" src="assets/logo.svg" />
       <div class="icons">
-        <button onclick="ChooseFile()"><img class="icon" src="assets/icon-document.svg" /></button>
+        <button onclick="ChooseFile()"><img alt="icon-document" class="icon" src="assets/icon-document.svg" /></button>
         <button><img alt="icon-folder" class="icon" src="assets/icon-folder.svg" /></button>
-        <button><img alt="icon-upload" class="icon2" src="assets/icon-upload.svg"/></button>
+        <button onclick="clearStorage()"><img alt="icon-upload" class="icon2" src="assets/icon-upload.svg"/></button>
       </div>
     </div>
 
     <div class="progress-bar-block">
       <div class="main-bubble">
         <div class="speech-bubble">
-          <p class="bubble-text"><span id="memory_left">3</span> MB Left</p>
+          <p class="bubble-text"><span id="memory_left"></span> MB Left</p>
         </div>
       </div>
-      <p class="used" >You’ve used <span id="memory_used">7 MB</span> of your storage</p>
+      <p class="used" >You’ve used <span id="memory_used"> MB</span> of your storage</p>
       <div class="progress">
-        <div style="width: 70%" class="progress-bar" id="progressbar"><span class="dot"></span></div>
+        <div class="progress-bar" id="progressbar"><span class="dot"></span></div>
 
       </div>
       <div class="memory">

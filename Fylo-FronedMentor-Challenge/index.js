@@ -1,24 +1,37 @@
-function checkLocal() {
-    let _memoryLeft;
-    let _memoryUsed;
-    let progressbar;
-    const change_element = document.querySelector('.progress-bar')
+// Error Messages
+const invalidFileSize = 'The following files are too big: ';
+const invalidTotalSize = 'The total size is too big.';
+const invalidFileType = 'The following files are not the correct type: ';
+
+const sizeUnitElements = document.getElementsByClassName("size-unit");
+
+function checkStorage() {
+    for (let i = 0; i < sizeUnitElements.length; i++) {
+        sizeUnitElements[i].innerHTML = "MB";
+    }
+    document.getElementById("max-size").innerHTML = "100";
+    document.getElementById("min-size").innerHTML = "0";
 
     if (!window.sessionStorage.getItem("Used")) {
-        clearStorage()
+        clearStorage();
     }
     else {
-        _memoryUsed = window.sessionStorage.getItem("Used");
-        _memoryLeft = window.sessionStorage.getItem("Left");
-        progressbar = window.sessionStorage.getItem("Progressbar");
-        document.getElementById("memory_left").innerHTML = _memoryLeft;
-        document.getElementById("memory_used").innerHTML = _memoryUsed + " MB";
-        change_element.style.width = progressbar + "%";
+        updateValues();
     }
 }
 
+function updateValues() {
+    let _memoryUsed = window.sessionStorage.getItem("Used");
+    let _memoryLeft = window.sessionStorage.getItem("Left");
+    let progressbar = window.sessionStorage.getItem("Progressbar");
+    document.getElementById("memory_left").innerHTML = _memoryLeft;
+    document.getElementById("memory_used").innerHTML = _memoryUsed;
+    const change_element = document.querySelector('.progress-bar')
+    change_element.style.width = progressbar + "%";
+
+}
+
 function clearStorage(){
-    localStorage.clear();
     sessionStorage.clear();
     window.sessionStorage.setItem("Left", "10");
     window.sessionStorage.setItem("Used", "0");
@@ -26,9 +39,8 @@ function clearStorage(){
     const change_element = document.querySelector('.progress-bar')
 
     document.getElementById("memory_left").innerHTML = window.sessionStorage.getItem("Left");
-    document.getElementById("memory_used").innerHTML = window.sessionStorage.getItem("Used") + " MB";
+    document.getElementById("memory_used").innerHTML = window.sessionStorage.getItem("Used");
     change_element.style.width = window.sessionStorage.getItem("Progressbar") + "%";
-
 }
 
 function progressBarUpdate(fileSize) {
@@ -59,13 +71,10 @@ function progressBarUpdate(fileSize) {
             }
         }
     }
-    document.getElementById("memory_left").innerHTML = _memoryLeft;
-    document.getElementById("memory_used").innerHTML = _memoryUsed + " MB";
-
-
     window.sessionStorage.setItem("Used", _memoryUsed);
     window.sessionStorage.setItem("Left", _memoryLeft);
     window.sessionStorage.setItem("Progressbar", progress);
+    checkStorage()
 
 }
 
@@ -74,7 +83,6 @@ function ChooseFile() {
     let _memoryUsed = window.sessionStorage.getItem("Used");
 
     let errors = [];
-    let progress;
     let input = document.createElement('input');
     const regex = new RegExp("(.*?)\.(png|jpg|jpeg|gif|PNG)$")
     input.type = 'file';
@@ -86,7 +94,8 @@ function ChooseFile() {
         let isValidType = true;
         let wrongSize = [];
         let wrongType = [];
-        let total_size = 0;
+        let totalSize = 0;
+
 
         for (let index = 0; index < files.length; ++index) {
             let filesize = (files[index].size / (1024*1024));
@@ -94,9 +103,7 @@ function ChooseFile() {
                 isValidSize = false;
                 wrongSize.push(files[index].name)
             }
-            else{
-                total_size = total_size + filesize;
-            }
+            else{totalSize = totalSize + filesize;}
 
             if (!(regex.test(files[index].name))) {
                 isValidType = false;
@@ -105,26 +112,22 @@ function ChooseFile() {
         }
         if(isValidSize === false)
         {
-            errors.push('The following files are too big: ' + wrongSize.join('<br>'));
+            errors.push(invalidFileSize + wrongSize.join('<br>'));
         }
-        else if(total_size > _memoryLeft)
-        {
-            errors.push('The total size is too big.');
-        }
+        else if(totalSize > _memoryLeft)
+        {errors.push(invalidTotalSize);}
 
         if(isValidType === false)
-        {
-            errors.push('The following files are not the correct type: ' + wrongType.join('<br>'));
-        }
+        {errors.push(invalidFileType + wrongType.join('<br>'));}
 
         if (errors.length > 0) {
             popupModal(errors.join('<br>'));
         }
 
         if (errors.length === 0) {
-            progress = ((Number(_memoryUsed) / (Number(_memoryUsed) + Number(_memoryLeft))) * 100);
+            let progress = ((Number(_memoryUsed) / (Number(_memoryUsed) + Number(_memoryLeft))) * 100);
             window.sessionStorage.setItem("Progress", progress);
-            progressBarUpdate(total_size);
+            progressBarUpdate(totalSize);
         }
         errors = []
     };

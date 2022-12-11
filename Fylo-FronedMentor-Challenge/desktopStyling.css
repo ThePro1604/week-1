@@ -7,6 +7,9 @@ body {
 /* Desktops and laptops ----------- */
 @media only screen
 and (min-width : 1224px) {
+    .memory span {
+        margin-inline: 2px;
+    }
 
     .startMB {
         color: white;
@@ -39,7 +42,7 @@ and (min-width : 1224px) {
         font-weight: bold;
     }
 
-    #memory_used {
+    #memory_used, #size-unit-used, #size-unit-left{
         margin-inline: 5px;
         font-weight: bold;
     }

@@ -15,7 +15,7 @@
   <title>Fylo data storage component</title>
 </head>
 
-<body onload="checkLocal()">
+<body onload="checkStorage()">
   <img alt="bg-desktop" class="bg" src="assets/bg-desktop.png" />
 
   <div class="content_block">
@@ -31,17 +31,17 @@
     <div class="progress-bar-block">
       <div class="main-bubble">
         <div class="speech-bubble">
-          <p class="bubble-text"><span id="memory_left"></span> MB Left</p>
+          <p class="bubble-text"><span id="memory_left"></span><span id="size-unit-left" class="size-unit"></span> Left</p>
         </div>
       </div>
-      <p class="used" >You’ve used <span id="memory_used"> MB</span> of your storage</p>
+      <p class="used" >You’ve used <span id="memory_used"></span><span id="size-unit-used" class="size-unit"></span> of your storage</p>
       <div class="progress">
         <div class="progress-bar" id="progressbar"><span class="dot"></span></div>
 
       </div>
       <div class="memory">
-        <p class="startMB">0 MB</p>
-        <p class="endMB">10 MB</p>
+        <p class="startMB"><span id="min-size"></span><span class="size-unit"></span></p>
+        <p class="endMB"><span id="max-size"></span><span class="size-unit"></span></p>
       </div>
     </div>
   </div>
